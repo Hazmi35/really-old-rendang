@@ -1,0 +1,17 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - 'lts/*'
+
+install: npm i -g eslint eslint-config-amber eslint-plugin-json
+
+script:
+- npm test
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API
+  app: rendang-bot
+  on: development
